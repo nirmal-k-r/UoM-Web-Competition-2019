@@ -69,8 +69,9 @@ router.get('/', function(req, res) {
                             var interests = [...user.interests, ...user.courses, ...user.experience]
                             db.questions.find({
                                 tags: {
-                                    $in: interests
-                                }
+                                    $in: interests,
+                                },
+                                $where: "this.reports.length < 2"
                             }, (err, questions) => {
                                 if (err) {
                                     res.send(err)
