@@ -115,11 +115,6 @@ router.get('/manage-questions', function(req, res) {
             keyword = req.query.keyword.trim();
             if (keyword == 'ad_min') {
                 query = {
-                    //     reports: {
-                    //         $gte: 8
-                    //     }
-                    // };
-
                     $where: "this.reports.length > 0"
                 }
             } else {
@@ -153,7 +148,6 @@ router.get('/manage-questions', function(req, res) {
                     if (err) {
                         console.log(err);
                     } else {
-                        console.log(questions); //remove
                         res.render('adminpanel/manage-questions', {
                             title: 'Webcup',
                             questions: questions,
