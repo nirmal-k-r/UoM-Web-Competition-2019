@@ -115,7 +115,7 @@ router.get('/manage-questions', function(req, res) {
             keyword = req.query.keyword.trim();
             if (keyword == 'ad_min') {
                 query = {
-                    $where: "this.reports.length > 0"
+                    $where: "this.reports.length > 1"
                 }
             } else {
                 query = {

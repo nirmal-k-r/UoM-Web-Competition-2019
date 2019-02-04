@@ -24,7 +24,7 @@ router.get('/', function(req, res) {
             title: 'Webcup',
             message: message,
             session: req.session,
-            base : config.base
+            base: config.base
         });
     } else {
         res.redirect(config.domain + "/login");
@@ -76,7 +76,6 @@ router.post('/update', function(req, res) {
                     interests: interests,
                     field: req.body.field,
                     experience: req.body.experience,
-                    admin: false
                 };
                 config.db.users.update({
                     uname: req.session.user.uname
@@ -128,4 +127,4 @@ router.post('/updatepw', function(req, res) {
         };
     });
 });
-module.exports = router;;
+module.exports = router;

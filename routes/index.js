@@ -39,7 +39,8 @@ router.get('/', function(req, res) {
                                                 "$options": "i"
                                             }
                                         },
-                                    ]
+                                    ],
+                                    $where: "this.reports.length < 2"
                                 },
                                 (err, questions) => {
                                     if (err) {
